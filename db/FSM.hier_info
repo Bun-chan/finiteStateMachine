@@ -1,0 +1,7 @@
+|FSM
+In1 => ~NO_FANOUT~
+RST => current_state~3.DATAIN
+CLK => current_state~1.DATAIN
+Out1 <> <UNC>
+
+

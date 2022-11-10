@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FSM
-Thu Nov 10 18:39:40 2022
+Thu Nov 10 18:55:08 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -10,7 +10,15 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |FSM|current_state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -34,22 +42,27 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+---------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                              ;
-+-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Thu Nov 10 18:39:40 2022           ;
-; Quartus Prime Version       ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
-; Revision Name               ; FSM                                         ;
-; Top-level Entity Name       ; FSM                                         ;
-; Family                      ; Cyclone V                                   ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
-; Total registers             ; N/A until Partition Merge                   ;
-; Total pins                  ; N/A until Partition Merge                   ;
-; Total virtual pins          ; N/A until Partition Merge                   ;
-; Total block memory bits     ; N/A until Partition Merge                   ;
-; Total PLLs                  ; N/A until Partition Merge                   ;
-; Total DLLs                  ; N/A until Partition Merge                   ;
-+-----------------------------+---------------------------------------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Thu Nov 10 18:55:08 2022       ;
+; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                   ; FSM                                         ;
+; Top-level Entity Name           ; FSM                                         ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 0                                           ;
+; Total pins                      ; 4                                           ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -155,25 +168,146 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                               ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                        ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------+---------+
+; AAC2M2P3.vhd                     ; yes             ; User VHDL File  ; D:/MSEE/5361/Week2/Assignment3_ VHDLFiniteStateMachine/AAC2M2P3.vhd ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimate of Logic utilization (ALMs needed) ; 0           ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 0           ;
+;     -- 7 input functions                    ; 0           ;
+;     -- 6 input functions                    ; 0           ;
+;     -- 5 input functions                    ; 0           ;
+;     -- 4 input functions                    ; 0           ;
+;     -- <=3 input functions                  ; 0           ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 4           ;
+;                                             ;             ;
+; Total DSP Blocks                            ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; Out1~output ;
+; Maximum fan-out                             ; 1           ;
+; Total fan-out                               ; 5           ;
+; Average fan-out                             ; 0.56        ;
++---------------------------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; |FSM                       ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 4    ; 0            ; |FSM                ; FSM         ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------+
+; State Machine - |FSM|current_state                                    ;
++-----------------+-----------------+-----------------+-----------------+
+; Name            ; current_state.c ; current_state.b ; current_state.a ;
++-----------------+-----------------+-----------------+-----------------+
+; current_state.a ; 0               ; 0               ; 0               ;
+; current_state.b ; 0               ; 1               ; 1               ;
+; current_state.c ; 1               ; 0               ; 1               ;
++-----------------+-----------------+-----------------+-----------------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; current_state.a                       ; Lost fanout        ;
+; current_state.b                       ; Lost fanout        ;
+; current_state.c                       ; Lost fanout        ;
+; Total Number of Removed Registers = 3 ;                    ;
++---------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-------------------+---------------------------------+
+; Type              ; Count                           ;
++-------------------+---------------------------------+
+; arriav_io_obuf    ; 1                               ;
+; boundary_port     ; 4                               ;
+;                   ;                                 ;
+; Max LUT depth     ; 0.00                            ;
+; Average LUT depth ; 0.00                            ;
++-------------------+---------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Thu Nov 10 18:39:32 2022
+    Info: Processing started: Thu Nov 10 18:55:00 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FSM -c FSM
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file aac2m2p3.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file aac2m2p3.vhd
+    Info (12022): Found design unit 1: FSM-fsm_arch File: D:/MSEE/5361/Week2/Assignment3_ VHDLFiniteStateMachine/AAC2M2P3.vhd Line: 10
     Info (12023): Found entity 1: FSM File: D:/MSEE/5361/Week2/Assignment3_ VHDLFiniteStateMachine/AAC2M2P3.vhd Line: 4
 Info (12127): Elaborating entity "FSM" for the top level hierarchy
-Error (10793): VHDL error at AAC2M2P3.vhd(4): entity FSM does not have an architecture File: D:/MSEE/5361/Week2/Assignment3_ VHDLFiniteStateMachine/AAC2M2P3.vhd Line: 4
-Error (12153): Can't elaborate top-level user hierarchy
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 1 warning
-    Error: Peak virtual memory: 4827 megabytes
-    Error: Processing ended: Thu Nov 10 18:39:40 2022
-    Error: Elapsed time: 00:00:08
-    Error: Total CPU time (on all processors): 00:00:20
+Warning (10036): Verilog HDL or VHDL warning at AAC2M2P3.vhd(12): object "current_state" assigned a value but never read File: D:/MSEE/5361/Week2/Assignment3_ VHDLFiniteStateMachine/AAC2M2P3.vhd Line: 12
+Warning (10541): VHDL Signal Declaration warning at AAC2M2P3.vhd(12): used implicit default value for signal "next_state" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/MSEE/5361/Week2/Assignment3_ VHDLFiniteStateMachine/AAC2M2P3.vhd Line: 12
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "Out1" has no driver File: D:/MSEE/5361/Week2/Assignment3_ VHDLFiniteStateMachine/AAC2M2P3.vhd Line: 8
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "In1" File: D:/MSEE/5361/Week2/Assignment3_ VHDLFiniteStateMachine/AAC2M2P3.vhd Line: 5
+    Warning (15610): No output dependent on input pin "CLK" File: D:/MSEE/5361/Week2/Assignment3_ VHDLFiniteStateMachine/AAC2M2P3.vhd Line: 7
+    Warning (15610): No output dependent on input pin "RST" File: D:/MSEE/5361/Week2/Assignment3_ VHDLFiniteStateMachine/AAC2M2P3.vhd Line: 6
+Info (21057): Implemented 4 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 0 output pins
+    Info (21060): Implemented 1 bidirectional pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
+    Info: Peak virtual memory: 4842 megabytes
+    Info: Processing ended: Thu Nov 10 18:55:08 2022
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:18
 
 
