@@ -18,8 +18,50 @@ begin
 			elsif (rising_edge(CLK)) then 
 				current_state <= next_state;
 			end if; --if RST=1
-		end process;
+		end process; --state_memory_process
+		
 	state_logic_process : process (current_state, In1)
 		begin
-		end process;
+		case (current_state) is
+				when a => if (In1 = '1') then
+					next_state <= b;
+					else
+					end if;--if Int=1
+				when b => if (In1 = '1') then
+					next_state <= b;
+					else
+					next_state <= c;
+					end if; --if Int=1;
+				when c => if (In1 = '1') then
+					next_state <= a;
+					else
+					next_state <= c;
+					end if; --if Int=1
+				when others => next_state <= a; --i do not know what this should be.
+					report "state_logic_process: others";
+		end case; --current_state
+		end process; --state_logic_process
+		
+	output_process : process (current_state, In1) 
+		begin
+			case (current_state) is
+				when a => if (In1 = '1') then
+					out1 <= '0';
+					else
+					out1 <= '0';
+					end if; --if Int1=1
+				when b => if (In1 = '1') then
+					out1 <= '0';
+					else
+					out1 <= '0';
+					end if; --if Int1=1
+				when c => if (In1 = '1') then
+					out1 <= '1';
+					else
+					out1 <= '1';
+					end if; --if Int1=1
+				when others => out1 <= '0';
+					report "output_process: others";
+			end case; --current_state
+		end process; --output_process
 end fsm_arch;

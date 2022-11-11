@@ -1,7 +1,10 @@
 |FSM
-In1 => ~NO_FANOUT~
+In1 => Selector1.IN2
+In1 => Selector3.IN1
+In1 => Selector0.IN1
+In1 => Selector2.IN0
 RST => current_state~3.DATAIN
 CLK => current_state~1.DATAIN
-Out1 <> <UNC>
+Out1 <> Out1
 
 
